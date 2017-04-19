@@ -1,9 +1,9 @@
 import * as types from '../actions/actionTypes';
 import initialState from './initialState';
 
-export default function courseReducer(state = initialState.courses, action) {
+export default function courseReducer(state = initialState.courses, action) { //starting with no courses
   switch (action.type) {
-    case types.LOAD_COURSES_SUCCESS:
+    case types.LOAD_COURSES_SUCCESS: /*Reducer drugi korak kreiranja teksta*/
       return action.courses;
 
     case types.CREATE_COURSE_SUCCESS:

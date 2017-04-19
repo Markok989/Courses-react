@@ -18,6 +18,7 @@ class CoursesPage extends React.Component {
   redirectToAddCoursePage() {
     browserHistory.push('/course');
   }
+  /*React, poslednji korak, niz dobija upisane podatke, render function ( koriste se child funkcije) */
 
   render() {
     const {courses} = this.props;
@@ -40,17 +41,25 @@ CoursesPage.propTypes = {
   actions: PropTypes.object.isRequired
 };
 
-//what part of redux store you want to expose  to component
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state, ownProps) { /*React, treci korak,  **redux connect */
   return {
     courses: state.courses
   };
 }
-//what actions want to expose like props
-function mapDispatchToProps(dispatch) {
+
+function mapDispatchToProps(dispatch) { /* **redux connect*/
   return {
     actions: bindActionCreators(courseActions, dispatch)
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
+/*
+ const connectStateAndProps = connect(mapStateToProps, mapDispatchToProps); ***
+ export default connectStateAndProps(CoursesPage);*/
+
+
+ export default
+ connect(mapStateToProps, mapDispatchToProps)(CoursesPage); // *** kod ima isto znacenje
+
+
+

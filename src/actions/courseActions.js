@@ -1,16 +1,17 @@
+//Akcija za kurs
 import * as types from './actionTypes';
 import courseApi from '../api/mockCourseApi';
 import {beginAjaxCall, ajaxCallError} from './ajaxStatusActions';
 
-export function loadCoursesSuccess(courses) {
+export function loadCoursesSuccess(courses) {  //action prvi korak kreiranje teksta
   return { type: types.LOAD_COURSES_SUCCESS, courses};
 }
 
-export function createCourseSuccess(course) {
+export function createCourseSuccess(course) { //kreiranje kursa
   return {type: types.CREATE_COURSE_SUCCESS, course};
 }
 
-export function updateCourseSuccess(course) {
+export function updateCourseSuccess(course) { //azuriranje
   return {type: types.UPDATE_COURSE_SUCCESS, course};
 }
 

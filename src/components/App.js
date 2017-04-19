@@ -1,19 +1,30 @@
-import React, {PropTypes} from 'react';
-import Header from './common/Header'
+// Ova komponenta se koristi na svakoj stranici
+import React, {PropTypes} from 'react'; /* pass children as properties to app component*/
+import Header from './common/Header';
+import {connect} from 'react-redux';
+
 class App extends React.Component {
-  render(){
-    return(
+  render() {
+    return (
       <div className="container-fluid">
-        <Header/>
+        <Header
+          loading={this.props.loading}
+        />
         {this.props.children}
       </div>
     );
   }
 }
 
-
 App.propTypes = {
-  children: PropTypes.object.isRequired
+  children: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired
 };
 
-export default App;
+function mapStateToProps(state, ownProps) {
+  return {
+    loading: state.ajaxCallsInProgress > 0
+  };
+}
+
+export default connect(mapStateToProps)(App);

@@ -91,19 +91,19 @@ ManageCoursePage.propTypes = {
   actions: PropTypes.object.isRequired
 };
 
-//Pull in the React Router context so router is available on this.context.router.
+
 ManageCoursePage.contextTypes = {
   router: PropTypes.object
 };
 
 function getCourseById(courses, id) {
   const course = courses.filter(course => course.id == id);
-  if (course) return course[0]; //since filter returns an array, have to grab the first.
+  if (course) return course[0];
   return null;
 }
 
 function mapStateToProps(state, ownProps) {
-  const courseId = ownProps.params.id; // from the path `/course/:id`
+  const courseId = ownProps.params.id; // putanja `/course/:id`
 
   let course = {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
 

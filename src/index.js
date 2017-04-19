@@ -17,9 +17,8 @@ store.dispatch(loadCourses());
 store.dispatch(loadAuthors());
 
 render(
-  //Provider component attach app to redux-store
   <Provider store={store}>
-     <Router history={browserHistory} routes={routes} />
+    <Router history={browserHistory} routes={routes} />
   </Provider>,
   document.getElementById('app')
 );
